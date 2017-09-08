@@ -1,0 +1,94 @@
+@import url(header.css);
+.newspaper .conter:nth-child(odd) {
+  width: 7rem;
+  margin: 0 auto;
+  -moz-column-count: 2;
+  /* Firefox */
+  -webkit-column-count: 2;
+  /* Safari and Chrome */
+  column-count: 2;
+  -moz-column-gap: 40px;
+  /* Firefox */
+  -webkit-column-gap: 40px;
+  /* Safari and Chrome */
+  column-gap: 40px;
+  -moz-column-rule: 4px outset #1d9a92;
+  /* Firefox */
+  -webkit-column-rule: 4px outset #1d9a92;
+  /* Safari and Chrome */
+  column-rule: 4px outset #1d9a92;
+  color: #ffffff; }
+  .newspaper .conter:nth-child(odd) .tit-dime {
+    break-inside: avoid;
+    -moz-page-break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+    position: relative;
+    width: 3.4rem;
+    padding-top: .25rem; }
+    .newspaper .conter:nth-child(odd) .tit-dime h1 {
+      font-size: .72rem;
+      text-align: center; }
+    .newspaper .conter:nth-child(odd) .tit-dime p {
+      width: auto;
+      display: inline-block;
+      padding: .05rem .1rem;
+      background: #ffffff;
+      color: #333333;
+      font-size: .3rem;
+      font-weight: 600;
+      position: absolute;
+      right: 0.25rem;
+      top: 0.75rem; }
+    .newspaper .conter:nth-child(odd) .tit-dime span {
+      text-align: center;
+      font-size: .28rem;
+      color: #80848b; }
+.newspaper .conter:nth-child(even) {
+  width: 7rem;
+  margin: 0 auto;
+  -moz-column-count: 2;
+  /* Firefox */
+  -webkit-column-count: 2;
+  /* Safari and Chrome */
+  column-count: 2;
+  -moz-column-gap: 40px;
+  /* Firefox */
+  -webkit-column-gap: 40px;
+  /* Safari and Chrome */
+  column-gap: 40px;
+  -moz-column-rule: 4px outset #1d9a92;
+  /* Firefox */
+  -webkit-column-rule: 4px outset #1d9a92;
+  /* Safari and Chrome */
+  column-rule: 4px outset #1d9a92;
+  color: #ffffff; }
+  .newspaper .conter:nth-child(even) .tit-dime {
+    break-inside: avoid;
+    -moz-page-break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+    position: relative;
+    width: 3.4rem;
+    padding-top: .25rem; }
+    .newspaper .conter:nth-child(even) .tit-dime h1 {
+      font-size: .72rem;
+      text-align: left; }
+    .newspaper .conter:nth-child(even) .tit-dime p {
+      width: auto;
+      display: inline-block;
+      padding: .05rem .1rem;
+      background: #ffffff;
+      color: #333333;
+      font-size: .3rem;
+      font-weight: 600;
+      position: absolute;
+      left: 0.45rem;
+      top: 0.75rem; }
+    .newspaper .conter:nth-child(even) .tit-dime span {
+      text-align: center;
+      font-size: .28rem;
+      color: #80848b; }
+
+.null-h {
+  height: 1.2rem; }
+
+/*# sourceMappingURL=Industry_information.css.map */

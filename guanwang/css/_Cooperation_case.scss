@@ -1,0 +1,31 @@
+@charset "UTF-8";
+@import "header.css";
+//内容
+.conter{
+  .banner{
+    width: 7rem;
+    margin: 0 auto;
+    img{
+      width: 100%;
+    }
+  }
+  .Cooperation_case_content{
+    width: 7.5rem;
+    margin: 0 auto;
+    .Cooperation_case_w{
+      position: relative;
+      width: 100%;
+      .box{
+        width:(3.5rem-.07rem);
+        img{
+          width: 100%;
+        }
+      }
+
+    }
+  }
+}
+//空
+.null{
+  height: 1.2rem;
+}

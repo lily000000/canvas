@@ -1,0 +1,57 @@
+@import url(header.css);
+.conter .Jc {
+  width: 7rem;
+  margin: 0 auto; }
+  .conter .Jc .conter-a {
+    display: flex; }
+    .conter .Jc .conter-a p:first-child {
+      width: 3.25rem;
+      margin-right: auto; }
+      .conter .Jc .conter-a p:first-child img {
+        width: 100%; }
+    .conter .Jc .conter-a p:last-child {
+      width: 3.65rem;
+      color: #b7aca7;
+      font-size: .24rem;
+      line-height: .35rem; }
+  .conter .Jc span {
+    color: #ffffff;
+    font-size: 0.45rem;
+    display: block;
+    font-weight: 400;
+    margin-top: .1rem; }
+.conter .Jc1 {
+  padding-top: 0.4rem; }
+  .conter .Jc1 p:last-child {
+    width: 3.25rem;
+    margin-right: auto; }
+    .conter .Jc1 p:last-child img {
+      width: 100%; }
+  .conter .Jc1 p:first-child {
+    width: 3.65rem;
+    color: #b7aca7;
+    font-size: .24rem;
+    line-height: .35rem; }
+  .conter .Jc1 span {
+    color: #ffffff;
+    font-size: 0.45rem;
+    display: block;
+    font-weight: 400;
+    margin-top: .1rem; }
+.conter .Jc2 {
+  padding-top: 0.4rem; }
+  .conter .Jc2 p:first-child {
+    width: 3.25rem;
+    margin-right: auto; }
+    .conter .Jc2 p:first-child img {
+      width: 100%; }
+  .conter .Jc2 p:last-child {
+    width: 3.65rem;
+    color: #b7aca7;
+    font-size: .24rem;
+    line-height: .35rem; }
+
+.null {
+  height: 1.2rem; }
+
+/*# sourceMappingURL=About_us.css.map */

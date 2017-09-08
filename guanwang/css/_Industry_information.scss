@@ -1,0 +1,57 @@
+@charset "UTF-8";
+@import "header.css";
+@mixin conter($h1,$p,$pv){
+  width: 7rem;
+  margin: 0 auto;
+  -moz-column-count:2; /* Firefox */
+  -webkit-column-count:2; /* Safari and Chrome */
+  column-count:2;
+  -moz-column-gap:40px; /* Firefox */
+  -webkit-column-gap:40px; /* Safari and Chrome */
+  column-gap:40px;
+  -moz-column-rule:4px outset #1d9a92; /* Firefox */
+  -webkit-column-rule:4px outset #1d9a92; /* Safari and Chrome */
+  column-rule:4px outset #1d9a92;
+  color: #ffffff;
+    .tit-dime{
+      break-inside: avoid;
+      -moz-page-break-inside: avoid;
+      -webkit-column-break-inside: avoid;
+      position: relative;
+      width: 3.4rem;
+      padding-top: .25rem;
+      h1{
+        font-size: .72rem;
+        text-align: $h1;
+      }
+      p{
+        width: auto;
+        display: inline-block;
+        padding: .05rem .1rem;
+        background: #ffffff;
+        color: #333333;
+        font-size: .3rem;
+        font-weight: 600;
+        position: absolute;
+        #{$p}: $pv;
+        top: 0.75rem;
+      }
+      span{
+        text-align: center;
+        font-size: .28rem;
+        color: #80848b;
+      }
+    }
+}
+// 内容
+.newspaper{
+  .conter:nth-child(odd){
+      @include conter(center,right,0.25rem);
+  }
+  .conter:nth-child(even){
+      @include conter(left,left,0.45rem);
+  }
+}
+.null-h{
+  height: 1.2rem;
+}

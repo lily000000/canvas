@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>首页</title>
+    <link rel="stylesheet" href="css/index.css">
+    <style media="screen">
+      body{
+        background-image: url(image/homeBackground.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      #myCanvas{
+        position: absolute;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box">
+      <!-- 标题栏 -->
+      <div class="header">
+          <h3>首页</h3>
+      </div>
+      <!-- 内容 -->
+      <div class="wrapper-center">
+          <canvas id="myCanvas" width="414" height="600"></canvas>
+      </div>
+    </div>
+    <script src="js/vue.js"></script>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script>
+    // var c=document.getElementById("myCanvas");
+    // var ctx=c.getContext("2d");//创建对象
+    // ctx.beginPath();//路径
+    // ctx.strokeStyle="#ffffff";//线条颜色
+    // ctx.arc(95,50,40,0,2*Math.PI);//画圆
+    // ctx.stroke();//进行绘制
+    // function draw(X,Y) {
+    //   var ctx = document.getElementById('myCanvas').getContext('2d');
+    //   var c=document.getElementById("myCanvas");
+    //   var img = new Image();// 创建一个<img>元素
+    //
+    //   img.onload = function(){
+    //     ctx.drawImage(img,40,200,64,65);
+    //     //ctx.drawImage(img, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight);
+    //   };
+    //   img.src = 'image/homeicon_08.png';// 设置图片源地址
+    // }draw()
+
+    $(function() {
+       var $my_canvas=$("#myCanvas");
+       var my_canvas=$my_canvas[0];
+       var context=my_canvas.getContext("2d");
+      // context.fill
+       //ctx.fillStyle="#0000ff";
+       preImage("image/homeicon2.png",function(x,y,width,height){
+           context.save();
+           // context.rotate(10*Math.PI/180);
+           context.drawImage(this,x,y,width,height);
+           context.restore();
+       },{"x":35,"y":236,"width":64,"height":64});
+       preImage("image/homeicon1.png",function(x,y,width,height){
+           context.save();
+           // context.rotate(-20*Math.PI/180);
+           context.drawImage(this,x,y,width,height);
+           context.restore();
+
+       },{"x":175,"y":54,"width":48,"height":47});  //x,y横坐标，纵坐标，图像宽度，width,图像高度，height
+       preImage("image/homeicon3.png",function(x,y,width,height){
+           context.save();
+           // context.rotate(-20*Math.PI/180);
+           context.drawImage(this,x,y,width,height);
+           context.restore();
+
+       },{"x":311,"y":270,"width":76,"height":77});  //x,y横坐标，纵坐标，图像宽度，width,图像高度，height
+       preImage("image/homeicon4.png",function(x,y,width,height){
+           context.save();
+           // context.rotate(-20*Math.PI/180);
+           context.drawImage(this,x,y,width,height);
+           context.restore();
+
+       },{"x":35,"y":400,"width":85,"height":85});  //x,y横坐标，纵坐标，图像宽度，width,图像高度，height
+       preImage("image/homeicon5.png",function(x,y,width,height){
+           context.save();
+           // context.rotate(-20*Math.PI/180);
+           context.drawImage(this,x,y,width,height);
+           context.restore();
+
+       },{"x":230,"y":440,"width":100,"height":100});  //x,y横坐标，纵坐标，图像宽度，width,图像高度，height
+
+       preImage("image/logo.png",function(x,y,width,height){
+           context.save();
+           //context.rotate(-20*Math.PI/180);旋转
+           context.drawImage(this,x,y,width,height);
+           context.restore();
+
+       },{"x":150,"y":220,"width":98.15,"height":92.65});  //x,y横坐标，纵坐标，图像宽度，width,图像高度，height
+   });
+
+   function preImage(url,callback,wo){
+        var img = new Image(); //创建一个Image对象，实现图片的预下载
+        img.src = url;
+       if (img.complete) { // 如果图片已经存在于浏览器缓存，直接调用回调函数
+            callback.call(img,wo.x,wo.y,wo.width,wo.height);
+           return; // 直接返回，不用再处理onload事件
+        }
+        img.onload = function () { //图片下载完毕时异步调用callback函数。
+            callback.call(img,wo.x,wo.y,wo.width,wo.height);//将回调函数的this替换为Image对象
+        };
+   }
+
+ (function () {
+     var lastTime = 0;//声明变量
+     var vendors = ['ms', 'moz', 'webkit', 'o'];//声明数组 解决兼容性
+     for (var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {//requestAnimationFrame优化动画
+         window.requestAnimationFrame = window[vendors[x] + 'RequestAnimationFrame'];//CancelAnimationFrame取消先前通过调用计划的动画帧请求
+         window.cancelAnimationFrame = window[vendors[x] + 'CancelAnimationFrame'] || window[vendors[x] + 'CancelRequestAnimationFrame'];
+     }
+     if (!window.requestAnimationFrame) window.requestAnimationFrame = function (callback, element) {
+         var currTime = new Date().getTime();//定义时间对象
+         var timeToCall = Math.max(0, 16 - (currTime - lastTime));//返回两个指定的数中带有较大的值的那个数。
+         var id = window.setTimeout(function () {
+             callback(currTime + timeToCall);
+         },
+         timeToCall);
+         lastTime = currTime + timeToCall;
+         return id;
+     };
+     if (!window.cancelAnimationFrame) window.cancelAnimationFrame = function (id) {
+         clearTimeout(id);
+     };
+ }());
+     var canvas = document.getElementById("myCanvas");
+     var ctx = canvas.getContext("2d");
+     ctx.lineCap = "round";
+
+     var t = 1;
+     var vertices = [];
+     vertices.push({
+         x: 80,
+         y: 240
+     });
+     vertices.push({
+         x: 200,
+         y: 100
+     });
+     vertices.push({
+         x: 330,
+         y: 320
+     });
+     vertices.push({
+         x: 80,
+         y: 430
+     });
+     vertices.push({
+         x: 280,
+         y: 500
+     });
+
+
+     ctx.lineWidth = 1;//线条宽度
+     ctx.strokeStyle = "#ffffff";//线条颜色
+     ctx.globalCompositeOperation="destination-over";//组合
+     var points = calcWaypoints(vertices);
+     animate(points);
+     function calcWaypoints(vertices) {
+         var waypoints = [];
+         for (var i = 1; i < vertices.length; i++) {
+             var pt0 = vertices[i - 1];
+             var pt1 = vertices[i];
+             var dx = pt1.x - pt0.x;
+             var dy = pt1.y - pt0.y;
+             for (var j = 0; j < 100; j++) {
+                 var x = pt0.x + dx * j / 100;
+                 var y = pt0.y + dy * j / 100;
+                 waypoints.push({
+                     x: x,
+                     y: y
+                 });
+             }
+         }
+         return (waypoints);
+     }
+     function animate() {
+         if (t < points.length - 1) {
+             requestAnimationFrame(animate);
+         }
+         ctx.beginPath();
+         ctx.moveTo(points[t - 1].x, points[t - 1].y);
+         ctx.lineTo(points[t].x, points[t].y);
+         ctx.stroke();
+         t++;
+     }
+     ctx.font="18px Courier New";
+     ctx.fillStyle="#ffffff";
+     ctx.fillText("合作案例",155,160);
+     ctx.fillText("关于我们",30,325);
+     ctx.fillText("品牌优势",309,375);
+     ctx.fillText("行业资讯",40,510);
+     ctx.fillText("服务项目",240,580);
+     ctx.fillText("寻澜科技",170,350);
+     
+
+     //监听点击事件
+     document.getElementById("myCanvas").addEventListener("click",function(e){
+        p = getEventPosition(e);
+         reDraw(p,context);
+       
+        console.log(p);
+     },false)
+
+      function getEventPosition(ev){
+        var x, y;
+        if (ev.layerX || ev.layerX == 0) {
+          x = ev.layerX;
+          y = ev.layerY;
+        } else if (ev.offsetX || ev.offsetX == 0) { // Opera
+          x = ev.offsetX;
+          y = ev.offsetY;
+        }
+        return {x: x, y: y};
+      }
+
+      //重绘
+      var arr = [
+                {"x":35,"y":236,"width":64,"height":64},
+                {"x":175,"y":54,"width":48,"height":47},
+                {"x":311,"y":270,"width":76,"height":77},
+                {"x":35,"y":400,"width":85,"height":85},
+                {"x":230,"y":440,"width":100,"height":100},
+                // {x:150,y:220,width:98.15,height:92.65}
+                ] 
+        //把原区域声明为数组存起来
+      var hee = ['indexa.html','demo.html','canvas.html','https://www.baidu.com/']//跳转
+      var $my_canvas=$("#myCanvas");
+      var my_canvas=$my_canvas[0];
+      var context=my_canvas.getContext("2d");
+      var cvs = $my_canvas 
+      function reDraw(p){        
+        var who = [];
+        context.clearRect(0, 0, cvs.width, cvs.height);
+        arr.forEach(function(v, i){
+          context.beginPath();
+          context.rect(v.x, v.y, v.width, v.height);
+//        context.stroke();//绘制路径
+//        context.strokeStyle="rgba(0,0,0,0,0.5)";
+          
+           if(p && context.isPointInPath(p.x, p.y)){
+             alert('第'+i+'个')
+             window.location.href = hee[i] //跳转
+             //如果传入了事件坐标，就用isPointInPath判断一下
+             //如果当前环境覆盖了该坐标，就将当前环境的index值放到数组里
+          who.push(i);
+           }else{
+           }
+        });
+        //根据数组中的index值，可以到arr数组中找到相应的元素。
+        return who;
+      }
+
+
+
+
+     //rem单位
+
+     var w = window.innerWidth
+     if(w > 750) {
+       w = 750
+     }
+     document.getElementsByTagName('html')[0].style.fontSize = w / 7.5 + 'px'
+    </script>
+  </body>
+</html>

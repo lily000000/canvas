@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>服务项目</title>
+    <link rel="stylesheet" href="css/Service_Items.css">
+    <style media="screen">
+      body{
+        background-image: url(image/SI_background.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box">
+      <!-- 标题栏 -->
+      <div class="header">
+          <div class="header-div">
+            <a href="#"><h4 class="icon-fanhui iconfont"></h4></a>
+            <h3>服务项目</h3>
+            <h4 id="nav-tragge" class="icon-caidan iconfont"></h4>
+          </div>
+      </div>
+      <div class="null-h"></div>
+      <!-- 右侧导航栏 -->
+      <div class="right-nav">
+          <p class="logo"><img src="image/logoy.png"></p>
+          <ul class="nav-list">
+            <li><a href="#">服务项目</a></li>
+            <li><a href="#">行业资讯</a></li>
+            <li><a href="#">品牌优势</a></li>
+            <li><a href="#">合作案例</a></li>
+            <li><a href="#">关于我们</a></li>
+            <li><a href="#">联系我们</a></li>
+          </ul>
+      </div>
+      <!-- 遮罩 -->
+      <div class="black"></div>
+      <!-- 服务范围内容 -->
+      <div class="conter1">
+        <p class="tit"><img src="image/tit.png"></p>
+        <p class="tit-conter"><img src="image/SIcanner2.png"></p>
+      </div>
+      <!-- 成功案例内容 -->
+      <div class="conter2">
+        <p class="tit"><img src="image/tit2.png"></p>
+        <div class="conter2-img">
+            <div class="conter2-top-left">
+                <img src="image/conter1.jpg"/>
+                <p>响应式购物商城网站</p>
+            </div>
+            <div class="conter2-top-right">
+                <img src="image/conter2.jpg"/>
+                <p>大气的响应式美食网站</p>
+            </div>
+        </div>
+        <div class="conter3-img">
+            <div class="conter2-top-left">
+                <img src="image/conter3.jpg"/>
+                <p>响应式宽屏学校教育网站</p>
+            </div>
+            <div class="conter2-top-right">
+                <img src="image/conter4.jpg"/>
+                <p>响应式健身网站</p>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="null"></div>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script>
+    window.onload=function(){
+      var rightNav=document.getElementsByClassName("right-nav")[0];
+      var nav=document.getElementById("nav-tragge");
+      var black=document.getElementsByClassName("black")[0];
+      var right=0;
+      nav.onclick=()=>{
+        black.style.display="block";
+        rightNav.style.right=0;
+      }
+      black.onclick=()=>{
+        black.style.display="none";
+        rightNav.style.right=-3.75+"rem";
+      }
+
+    }
+
+
+
+    //rem单位
+    var w = window.innerWidth
+    if(w > 750) {
+      w = 750
+    }
+    document.getElementsByTagName('html')[0].style.fontSize = w / 7.5 + 'px'
+    </script>
+  </body>
+</html>

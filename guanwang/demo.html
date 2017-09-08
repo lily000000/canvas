@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <canvas id="canvas" width=350 height=350></canvas>
+    <script>
+    (function () {
+        var lastTime = 0;//声明变量
+        var vendors = ['ms', 'moz', 'webkit', 'o'];//声明数组 解决兼容性
+        for (var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {//requestAnimationFrame优化动画
+            window.requestAnimationFrame = window[vendors[x] + 'RequestAnimationFrame'];//CancelAnimationFrame取消先前通过调用计划的动画帧请求
+            window.cancelAnimationFrame = window[vendors[x] + 'CancelAnimationFrame'] || window[vendors[x] + 'CancelRequestAnimationFrame'];
+        }
+                    //requestAnimationFrame优化动画
+        if (!window.requestAnimationFrame) window.requestAnimationFrame = function (callback, element) {
+            var currTime = new Date().getTime();//定义时间对象
+            var timeToCall = Math.max(0, 16 - (currTime - lastTime));//返回两个指定的数中带有较大的值的那个数。
+            var id = window.setTimeout(function () {
+                callback(currTime + timeToCall);
+            },
+            timeToCall);
+            lastTime = currTime + timeToCall;
+            return id;
+        };
+
+        if (!window.cancelAnimationFrame) window.cancelAnimationFrame = function (id) {
+            clearTimeout(id);
+        };
+    }());
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+    ctx.lineCap = "round";
+    // variable to hold how many frames have elapsed in the animation
+    //变量来保存动画中的帧数。
+    var t = 1;
+    // define the path to plot
+    //定义绘图路径
+    var vertices = [];
+    vertices.push({
+        x: 100,
+        y: 100
+    });
+    vertices.push({
+        x: 300,
+        y: 100
+    });
+    vertices.push({
+        x: 80,
+        y: 200
+    });
+    vertices.push({
+        x: 10,
+        y: 100
+    });
+    vertices.push({
+        x: 0,
+        y: 0
+    });
+    // draw the complete line
+    //画完整的线
+    ctx.lineWidth = 0;//线条宽短
+    // tell canvas you are beginning a new path
+    //告诉画布你正在开始一条新的道路
+    ctx.beginPath();//创建路径
+    // draw the path with moveTo and multiple lineTo's
+    //随着移动和多线的绘制路径
+    ctx.moveTo(0, 0);//开始位置
+    ctx.lineTo(300, 100);
+    ctx.lineTo(80, 200);
+    ctx.lineTo(10, 100);
+    ctx.lineTo(0, 0);
+    // stroke the path
+    //描边路径
+    ctx.stroke();
+    // set some style
+    //设置一些风格
+//  ctx.lineWidth = 5;//线条宽度
+//  ctx.strokeStyle = "blue";//线条颜色
+    // calculate incremental points along the path
+    //沿路径计算增量点
+    var points = calcWaypoints(vertices);
+    // extend the line from start to finish with animation
+    //用动画把线从开始到结束
+    animate(points);
+    // calc waypoints traveling along vertices
+    //钙航点沿顶点
+    function calcWaypoints(vertices) {
+        var waypoints = [];
+        for (var i = 1; i < vertices.length; i++) {
+            var pt0 = vertices[i - 1];
+            var pt1 = vertices[i];
+            var dx = pt1.x - pt0.x;
+            var dy = pt1.y - pt0.y;
+            for (var j = 0; j < 100; j++) {
+                var x = pt0.x + dx * j / 100;
+                var y = pt0.y + dy * j / 100;
+                waypoints.push({
+                    x: x,
+                    y: y
+                });
+            }
+        }
+        return (waypoints);
+    }
+    function animate() {
+        if (t < points.length - 1) {
+            requestAnimationFrame(animate);
+        }
+        // draw a line segment from the last waypoint
+        //从最后一点绘制线段
+        // to the current waypoint
+        //当前路点
+        ctx.beginPath();
+        ctx.moveTo(points[t - 1].x, points[t - 1].y);
+        ctx.lineTo(points[t].x, points[t].y);
+        ctx.stroke();
+        // increment "t" to get the next waypoint
+        //增加“T”到下一个关键点
+        t++;
+    }
+    </script>
+  </body>
+</html>

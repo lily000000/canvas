@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>关于我们</title>
+    <link rel="stylesheet" href="css/About_us.css">
+    <style media="screen">
+      body{
+        background-image: url(image/au_background.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box">
+      <!-- 标题栏 -->
+      <div class="header">
+          <div class="header-div">
+            <a href="#"><h4 class="icon-fanhui iconfont"></h4></a>
+            <h3>关于我们</h3>
+            <h4 id="nav-tragge" class="icon-caidan iconfont"></h4>
+          </div>
+      </div>
+      <div class="null-h"></div>
+      <!-- 右侧导航栏 -->
+      <div class="right-nav">
+          <p class="logo"><img src="image/logoy.png"></p>
+          <ul class="nav-list">
+            <li><a href="#">服务项目</a></li>
+            <li><a href="#">行业资讯</a></li>
+            <li><a href="#">品牌优势</a></li>
+            <li><a href="#">合作案例</a></li>
+            <li><a href="#">关于我们</a></li>
+            <li><a href="#">联系我们</a></li>
+          </ul>
+      </div>
+      <!-- 遮罩 -->
+      <div class="black"></div>
+      <!-- 空 -->
+      <div class="null"></div>
+      <!-- 内容 -->
+      <div class="conter">
+        <div class="Jc">
+          <div class="conter-a">
+            <p><img src="image/au.jpg"></p>
+            <p>我们通过研究理解用户的思维,行为,和目标挖掘用户对产品使用的潜在需求,通过我们服务于各行业客户的丰富经验,结合品牌的优势进行分析，让用户在情绪上,行为上感知产品的创新,感受完美的体验,超越品牌的价值.</p>
+          </div>
+          <span>激情</span>
+        <div>
+        <div class="Jc1">
+          <div class="conter-a">
+            <p style="width:3.65rem">我们是一只富有激情的创新团队。我们将设计通过情感的表达把用户和产品很自然的连接在一起，让用户享受使用产品的愉悦，以此来强化对产品、品牌的体验认知！通过自然的交互和生动的设计展现出来，用一个充满情感化的设计打动用户！</p>
+            <p style="width:3.25rem"><img src="image/au1.jpg"/>  <span>激情</span></p>
+          </div>
+        </div>
+        <div class="Jc2">
+          <div class="conter-a">
+            <p><img src="image/au2.jpg"></p>
+            <p>为客户提供品牌化、一站式的解决方案。服务涵盖了互联网，掌上移动设备、桌面平台以及电子消费类产品等。为客户提供从品牌设计、概念设计、交互设计、视觉设计、功能研发到最终产品实现。为客户提供真正具有创新价值的产品体验。</p>
+          </div>
+          <span>激情</span>
+        <div>
+      </div>
+    </div>
+    <script>
+    window.onload=function(){
+      var rightNav=document.getElementsByClassName("right-nav")[0];
+      var nav=document.getElementById("nav-tragge");
+      var black=document.getElementsByClassName("black")[0];
+      var right=0;
+      nav.onclick=()=>{
+        black.style.display="block";
+        rightNav.style.right=0;
+      }
+      black.onclick=()=>{
+        black.style.display="none";
+        rightNav.style.right=-3.75+"rem";
+      }
+    }
+
+    //rem单位
+    var w = window.innerWidth
+    if(w > 750) {
+      w = 750
+    }
+    document.getElementsByTagName('html')[0].style.fontSize = w / 7.5 + 'px'
+    </script>
+  </body>
+</html>

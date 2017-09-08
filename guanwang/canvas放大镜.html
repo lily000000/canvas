@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+   <canvas id="canvas" width="300" height="300"></canvas>
+   <script>
+   //ImageData对象中存储着canvas对象真实的像素数据，它包含以下几个只读属性(width图片宽度，单位是像素)
+   //(height图片高度，单位是像素)(dataUint8ClampedArray类型的一维数组，包含着RGBA格式的整型数据，范围在0至255之间（包括255）。)
+   //你可以用putImageData()方法去对场景进行像素数据的写入
+  //  var canvas=document.getElementById("canvas");
+  //  var ctx=canvas.getContext("2d");
+  //  var myImageData=ctx.createImageData(width,height)//创建了一个新的具体特定尺寸的ImageData对象 所有像素被预设为透明黑、
+
+
+   //js函数劫持
+   let warn=alert;//声明变量
+   window.alert=(t)=>{
+     if(confirm("How are you?")) warn(t);
+   }
+   alert("help me...!!!")//为什么点击确认这个才会执行
+
+
+
+
+
+
+
+
+   </script>
+  </body>
+</html>

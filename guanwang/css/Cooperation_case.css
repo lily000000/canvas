@@ -1,0 +1,21 @@
+@import url(header.css);
+.conter .banner {
+  width: 7rem;
+  margin: 0 auto; }
+  .conter .banner img {
+    width: 100%; }
+.conter .Cooperation_case_content {
+  width: 7.5rem;
+  margin: 0 auto; }
+  .conter .Cooperation_case_content .Cooperation_case_w {
+    position: relative;
+    width: 100%; }
+    .conter .Cooperation_case_content .Cooperation_case_w .box {
+      width: 3.43rem; }
+      .conter .Cooperation_case_content .Cooperation_case_w .box img {
+        width: 100%; }
+
+.null {
+  height: 1.2rem; }
+
+/*# sourceMappingURL=Cooperation_case.css.map */
